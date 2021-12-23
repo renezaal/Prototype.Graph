@@ -45,7 +45,6 @@ public class Manager : MonoBehaviour {
 		}
 
 		// Spawn all edges.
-		if(Acyclic) {
 			var unconnectedVertices = new RandomList<Vertex>(this.vertices);
 			var connectedVertices = new RandomList<Vertex>();
 			connectedVertices.Add(unconnectedVertices.RemoveOne());
@@ -56,20 +55,15 @@ public class Manager : MonoBehaviour {
 				this.SpawnEdge(parent, child);
 				connectedVertices.Add(child);
 			}
-		} else {
+
+			if (!Acyclic) {
 			int maxEdges = this.vertices.Count*(this.vertices.Count-1)/2;
 			int edgesToSpawn = (int) Mathf.Min(maxEdges, this.vertices.Count * AverageConnectedness);
 			float actualAverageConnectedness = (float)edgesToSpawn/(float)this.vertices.Count;
-			float currentAverageConnectedness = 0f;
-			var unconnectedVertices = new RandomList<Vertex>(this.vertices);
+			float currentAverageConnectedness = (float)this.edges.Count / (float)this.vertices.Count;
 			while(currentAverageConnectedness < actualAverageConnectedness) {
-				Vertex v1;
 				var notFullyConnectedVertices = new RandomList<Vertex>(this.vertices.Where(v=>v.Connectedness < this.vertices.Count - 1));
-				if(unconnectedVertices.Count>0) {
-					v1 = unconnectedVertices.RemoveOne();
-				} else {
-					v1 = notFullyConnectedVertices.RemoveOne();
-				}
+				Vertex v1 = notFullyConnectedVertices.RemoveOne();
 
 				notFullyConnectedVertices = new RandomList<Vertex>(notFullyConnectedVertices
 					.Where(v =>

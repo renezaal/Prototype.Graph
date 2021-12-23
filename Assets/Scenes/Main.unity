@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,16 +364,16 @@ MonoBehaviour:
   VertexPrefab: {fileID: 1224022833321494481, guid: 3c10b632b3a1e60469651edf4780ebc8, type: 3}
   EdgePrefab: {fileID: 2152717683437192227, guid: 8f0db38404e405f4caae7e783adf535d, type: 3}
   Container: {fileID: 671779559}
-  VerticesToSpawn: 40
-  AverageConnectedness: 1.5
+  VerticesToSpawn: 105
+  AverageConnectedness: 11.7
   Acyclic: 0
-  EdgeMaxLength: 10
-  EdgeStiffness: 5
+  EdgeMaxLength: 9
+  EdgeStiffness: 3
   GraphCeiling: 10
   GraphFloor: -10
   RepulsionForceScale: 1
   PullForceScale: 1
-  MaxForceMagnitude: 10
+  MaxForceMagnitude: 100
 --- !u!4 &1716786136
 Transform:
   m_ObjectHideFlags: 0
